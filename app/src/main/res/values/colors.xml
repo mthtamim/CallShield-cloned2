@@ -1,39 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- v1.2.0 design tokens — LIGHT theme. The dark counterparts live in
-     values-night/colors.xml. Same names in both files: layouts and code
-     only ever reference the token, never a raw value. -->
 <resources>
-    <color name="cs_bg">#FAFAFA</color>
-    <color name="cs_card">#FFFFFF</color>
-    <color name="cs_text">#1C1B1F</color>
-    <color name="cs_text_body">#49454F</color>
-    <color name="cs_text_secondary">#79747E</color>
-    <color name="cs_accent">#6200EE</color>
-    <color name="cs_accent_dark">#3700B3</color>
-    <color name="cs_on_accent">#FFFFFF</color>
-    <color name="cs_danger">#B3261E</color>
-    <color name="cs_warning">#F9A825</color>
-    <color name="cs_divider">#E7E0EC</color>
-    <color name="cs_bottombar">#FFFFFF</color>
-    <color name="cs_bottombar_divider">#E7E0EC</color>
+    <!-- Light Theme Material 3 Colors -->
+    <color name="md_theme_light_primary">#006495</color>
+    <color name="md_theme_light_onPrimary">#ffffff</color>
+    <color name="md_theme_light_primaryContainer">#cbe6ff</color>
+    <color name="md_theme_light_onPrimaryContainer">#001e30</color>
+    <color name="md_theme_light_secondary">#50606e</color>
+    <color name="md_theme_light_onSecondary">#ffffff</color>
+    <color name="md_theme_light_error">#ba1a1a</color>
+    <color name="md_theme_light_onError">#ffffff</color>
+    <color name="md_theme_light_background">#fcfcff</color>
+    <color name="md_theme_light_onBackground">#1a1c1e</color>
+    <color name="md_theme_light_surface">#fcfcff</color>
+    <color name="md_theme_light_onSurface">#1a1c1e</color>
 
-    <!-- Coloured icon-tile system (icon colour + its tinted tile). -->
-    <color name="cs_red">#E11D48</color>
-    <color name="cs_amber">#D97706</color>
-    <color name="cs_purple">#7C3AED</color>
-    <color name="cs_blue">#0284C7</color>
-    <color name="cs_pink">#DB2777</color>
-    <color name="cs_tint_green">#E6F4EA</color>
-    <color name="cs_tint_red">#FCE8E6</color>
-    <color name="cs_tint_amber">#FEF7E0</color>
-    <color name="cs_tint_purple">#F3E5F5</color>
-    <color name="cs_tint_blue">#E3F2FD</color>
-    <color name="cs_tint_pink">#FCE4EC</color>
+    <!-- Fallback / Old references mapped to M3 equivalents -->
+    <color name="cs_bg">#fcfcff</color>
+    <color name="cs_card">#ffffff</color>
+    <color name="cs_text">#1a1c1e</color>
+    <color name="cs_text_body">#42474e</color>
+    <color name="cs_text_secondary">#73777f</color>
+    <color name="cs_accent">#006495</color>
+    <color name="cs_accent_dark">#004b73</color>
+    <color name="cs_on_accent">#ffffff</color>
+    <color name="cs_danger">#ba1a1a</color>
+    <color name="cs_warning">#825500</color>
+    <color name="cs_divider">#c2c7cf</color>
+    <color name="cs_bottombar">#fcfcff</color>
+    <color name="cs_bottombar_divider">#c2c7cf</color>
 
-    <!-- Dashboard hero gradient (pale in light theme). -->
-    <color name="cs_hero_start">#EDE7F6</color>
-    <color name="cs_hero_end">#E8EAF6</color>
-    <color name="cs_hero_border">#D1C4E9</color>
+    <color name="cs_red">#ba1a1a</color>
+    <color name="cs_amber">#825500</color>
+    <color name="cs_purple">#6750a4</color>
+    <color name="cs_blue">#006495</color>
+    <color name="cs_pink">#984061</color>
+    <color name="cs_tint_green">#cbe6ff</color>
+    <color name="cs_tint_red">#ffdad6</color>
+    <color name="cs_tint_amber">#ffddb3</color>
+    <color name="cs_tint_purple">#eaddff</color>
+    <color name="cs_tint_blue">#cbe6ff</color>
+    <color name="cs_tint_pink">#ffd9e2</color>
+
+    <color name="cs_hero_start">#cbe6ff</color>
+    <color name="cs_hero_end">#fcfcff</color>
+    <color name="cs_hero_border">#006495</color>
 
     <color name="ic_launcher_background">#FFFFFF</color>
 </resources>

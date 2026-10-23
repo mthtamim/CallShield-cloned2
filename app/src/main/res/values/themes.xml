@@ -1,88 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.CallShield" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="android:windowBackground">@color/cs_bg</item>
-        <item name="android:statusBarColor">@color/cs_bg</item>
-        <item name="colorAccent">@color/cs_accent</item>
+    <style name="Theme.CallShield" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/md_theme_light_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
+        <item name="colorError">@color/md_theme_light_error</item>
+        <item name="colorOnError">@color/md_theme_light_onError</item>
+        <item name="colorSurface">@color/md_theme_light_surface</item>
+        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
+        <item name="android:windowBackground">@color/md_theme_light_background</item>
     </style>
 
-    <style name="CS.Card" parent="">
-        <item name="android:background">@drawable/bg_card</item>
-        <item name="android:padding">16dp</item>
-        <item name="android:elevation">4dp</item>
+
+    <style name="CS.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="contentPadding">16dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
     </style>
 
-    <style name="CS.Heading" parent="">
-        <item name="android:textSize">17sp</item>
+    <style name="CS.Heading" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/cs_text</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
     </style>
 
-    <style name="CS.Body" parent="">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/cs_text_body</item>
+    <style name="CS.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
     </style>
 
-    <!-- v1.2.0: dashboard stat tile (icon on top, big coloured number).
-         The layout sets the tile's own padding-free column inside. -->
-    <style name="CS.StatTile" parent="">
-        <item name="android:background">@drawable/bg_card</item>
-        <item name="android:padding">12dp</item>
+    <style name="CS.StatTile" parent="Widget.Material3.CardView.Elevated">
+        <item name="contentPadding">16dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
     </style>
 
-    <style name="CS.Caption" parent="">
-        <item name="android:textSize">13sp</item>
-        <item name="android:textColor">@color/cs_text_secondary</item>
+    <style name="CS.Caption" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
     </style>
 
-    <style name="CS.Button" parent="">
-        <item name="android:background">@drawable/bg_button</item>
-        <item name="android:textColor">@color/cs_on_accent</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:padding">12dp</item>
+    <style name="CS.Button" parent="Widget.Material3.Button">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="cornerRadius">24dp</item>
     </style>
 
-    <style name="CS.CardMenu" parent="">
-        <item name="android:background">@drawable/bg_card</item>
-        <item name="android:padding">0dp</item>
-        <item name="android:elevation">4dp</item>
+    <style name="CS.CardMenu" parent="Widget.Material3.CardView.Elevated">
+        <item name="contentPadding">0dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
     </style>
 
-    <!-- v1.1.1: shared tab-menu row (Filtering + Settings pages). One row
-         component for both pages: dot, title + description, live status. -->
     <style name="CS.MenuRow" parent="">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:padding">12dp</item>
+        <item name="android:padding">16dp</item>
         <item name="android:background">?android:attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
     </style>
 
-    <!-- v1.2.0: the menu rows' leading element is now a coloured icon
-         tile (40dp tinted square, glyph centred). The row sets its own
-         tile background + glyph + tint; this style only fixes geometry. -->
     <style name="CS.MenuTile" parent="">
-        <item name="android:layout_width">40dp</item>
-        <item name="android:layout_height">40dp</item>
-        <item name="android:padding">9dp</item>
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:padding">12dp</item>
     </style>
 
-    <style name="CS.MenuStatus" parent="">
-        <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/cs_accent_dark</item>
+    <style name="CS.MenuStatus" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">?attr/colorPrimary</item>
         <item name="android:layout_marginStart">10dp</item>
         <item name="android:maxLines">2</item>
         <item name="android:gravity">end</item>
     </style>
 
-    <style name="CS.ButtonSecondary" parent="">
-        <item name="android:background">@drawable/bg_button_secondary</item>
-        <item name="android:textColor">@color/cs_accent_dark</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:padding">12dp</item>
+    <style name="CS.ButtonSecondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="strokeColor">?attr/colorPrimary</item>
+        <item name="cornerRadius">24dp</item>
     </style>
 </resources>

@@ -255,10 +255,7 @@ class MainActivity : BaseActivity() {
         bindTabs()
         // Explicitly start on Dashboard, ignoring sessionPage to fix
         // unexpected tab switches, unless deep-linked to log.
-        val startPage = when {
-            intent.hasExtra(EXTRA_OPEN_LOG) -> PAGE_LOG
-            else -> PAGE_DASHBOARD
-        }
+        val startPage = if (intent.hasExtra(EXTRA_OPEN_LOG)) PAGE_LOG else PAGE_DASHBOARD
         showPage(startPage)
 
         // Back from any tab goes to Dashboard first; Back there exits.
