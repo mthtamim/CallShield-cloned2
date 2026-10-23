@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cs_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            style="@style/CS.Heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/online_title"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            style="@style/CS.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/CS.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/online_unverified" />
+
+            <Switch
+                android:id="@+id/switchOnline"
+                style="@style/CS.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/online_switch" />
+
+            <TextView
+                style="@style/CS.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/online_desc" />
+
+            <EditText
+                android:id="@+id/editOnlineUrl"
+                style="@style/CS.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/online_url_hint"
+                android:inputType="textUri" />
+
+            <EditText
+                android:id="@+id/editOnlineKey"
+                style="@style/CS.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:hint="@string/online_key_hint"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/btnSaveOnline"
+                style="@style/CS.ButtonSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/save" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/CS.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/CS.Heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/online_test_label" />
+
+            <EditText
+                android:id="@+id/editOnlineNumber"
+                style="@style/CS.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="@string/input_number_hint"
+                android:inputType="phone" />
+
+            <Button
+                android:id="@+id/btnOnlineLookup"
+                style="@style/CS.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/online_lookup_btn" />
+
+            <TextView
+                android:id="@+id/textOnlineResult"
+                style="@style/CS.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

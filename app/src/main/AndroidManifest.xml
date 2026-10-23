@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Part 2 note on feature 37: the CORE still works fully offline and
+         sends nothing anywhere. The INTERNET permission below exists only
+         for the optional, default-OFF online lookup layer (features
+         46/47), which the user must explicitly enable and configure with
+         their own backend before any network call can happen. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- Optional: used only for Callback Allow (feature 8). The app works
+         without it; the engine simply skips the callback check. -->
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <!-- Part 2: silent SMS inbox preview (feature 28). The muting itself
+         works through notification access, not this permission. -->
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <!-- Part 2: re-arm schedule and summary alarms after reboot (15, 31). -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Part 2: exact schedule boundaries and summary times (15, 31).
+         Without the grant, alarms fall back to inexact delivery. -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <!-- Part 2: app lock biometrics (feature 38). -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <!-- Part 2, optional: listing phone accounts on the per-SIM screen
+         (feature 17). Screening itself never uses it. -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- v1.1, optional: the auto-SMS reply to rejected numbers (feature
+         49). Requested only when the user enables that feature; the reply
+         is sent from the user's own SIM at the user's own cost. -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- v1.1, optional: calendar-based Focus (feature 54). Requested only
+         when the user enables that feature. -->
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CallShield">
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.WizardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ListsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.PermissionsActivity"
+            android:exported="false" />
+
+        <!-- Part 2 activities -->
+        <activity
+            android:name=".ui.ProfilesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.RulesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SmsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.StatsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SuggestionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.TestModeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SecurityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.OnlineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.LockActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".screening.ShieldCallScreeningService"
+            android:exported="true"
+            android:permission="android.permission.BIND_SCREENING_SERVICE">
+            <intent-filter>
+                <action android:name="android.telecom.CallScreeningService" />
+            </intent-filter>
+        </service>
+
+        <!-- Part 2: SMS notification muting (features 25-28) -->
+        <service
+            android:name=".sms.SmsNotificationListener"
+            android:exported="true"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <!-- Part 2: Quick Settings tiles (feature 18) -->
+        <service
+            android:name=".tile.ModeTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_stat_shield"
+            android:label="@string/tile_profile_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.quicksettings.ACTIVE_TILE"
+                android:value="true" />
+        </service>
+        <service
+            android:name=".tile.TempAllowTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_stat_shield"
+            android:label="@string/tile_temp_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.quicksettings.ACTIVE_TILE"
+                android:value="true" />
+        </service>
+
+        <!-- Part 2: home-screen widget (feature 18) -->
+        <receiver
+            android:name=".widget.CallShieldWidget"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info" />
+        </receiver>
+        <receiver
+            android:name=".widget.WidgetActionReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".notify.BlockActionReceiver"
+            android:exported="false" />
+        <!-- v1.1: post-call quick decision and urgent reminder (51, 55) -->
+        <receiver
+            android:name=".notify.PostCallReceiver"
+            android:exported="false" />
+        <receiver
+            android:name=".notify.ScheduleReceiver"
+            android:exported="false" />
+        <receiver
+            android:name=".notify.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

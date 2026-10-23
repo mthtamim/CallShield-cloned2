@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.mthtamim.callshield'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.mthtamim.callshield"
+        // CallScreeningService and the call-screening role exist from API 29
+        // (Android 10), which is also the spec floor for this app.
+        minSdk 29
+        targetSdk 34
+        versionCode 6
+        versionName "1.2.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"
+    implementation "androidx.appcompat:appcompat:1.7.0"
+    // Feature 38 (app lock): the one dependency Part 2 adds. 1.1.0 is the
+    // long-stable BiometricPrompt line; verified public API only.
+    implementation "androidx.biometric:biometric:1.1.0"
+}

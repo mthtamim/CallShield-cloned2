@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dashboard protection-check status dot. The solid colour is a
+     placeholder: MainActivity tints it green (OK) or amber (attention)
+     at runtime via backgroundTintList. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@android:color/white" />
+</shape>

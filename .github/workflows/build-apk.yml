@@ -1,0 +1,57 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle 8.7
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: Accept Android SDK licenses
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+
+      - name: Install Android SDK 34
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-34" "build-tools;34.0.0"
+
+      - name: Build debug APK
+        run: gradle :app:assembleDebug --stacktrace
+
+      - name: Rename APK
+        run: cp app/build/outputs/apk/debug/app-debug.apk CallShield.apk
+
+      - name: Upload APK as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CallShield-apk
+          path: CallShield.apk
+          retention-days: 90
+
+      - name: Publish APK to Release v1.2.0
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.2.0
+          name: CallShield v1.2.0
+          body: |
+            CallShield v1.2.0 — শুধু নতুন চেহারা, কোনো ফিচার বদলায়নি: পুরো অ্যাপ এখন deep navy ডার্ক থিমে (হালকা থিমও আছে), Dashboard-এ গ্র্যাডিয়েন্ট hero কার্ড ও রঙিন আইকন-টাইলসহ স্ট্যাট টাইল, মেনু সারিতে রঙিন আইকন টাইল, Lists/Log-এর সারি এখন কার্ড, নিচের নেভিগেশন বারে সক্রিয় ট্যাবের নিচে সবুজ ডট, আর সেটআপ উইজার্ডে progress bar। v1.1.1-এর সব সংশোধনী (উইজার্ডে সব অনুমতি, Dashboard-এ শুরু, ট্যাব পেজ হিসেবে Log, নতুন আইকন) এই সংস্করণেই আছে। সব ৫৯ ফিচার অপরিবর্তিত।
+            APK ডাউনলোড করে ইনস্টল করো। সেটআপের জন্য README ও docs/manual-bn.md দেখো।
+          files: CallShield.apk

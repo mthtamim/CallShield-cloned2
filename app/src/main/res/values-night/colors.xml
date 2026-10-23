@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v1.2.0 design tokens — DARK theme (the reference look): deep navy
+     surfaces, emerald accent, coloured icon tiles. Names mirror
+     values/colors.xml exactly. -->
+<resources>
+    <color name="cs_bg">#0A1120</color>
+    <color name="cs_card">#131C2E</color>
+    <color name="cs_text">#EEF2F8</color>
+    <color name="cs_text_body">#C9D4E4</color>
+    <color name="cs_text_secondary">#8B98AD</color>
+    <color name="cs_accent">#22C55E</color>
+    <color name="cs_accent_dark">#22C55E</color>
+    <color name="cs_on_accent">#06251A</color>
+    <color name="cs_danger">#F4536E</color>
+    <color name="cs_warning">#F5B942</color>
+    <color name="cs_divider">#1E2A44</color>
+    <color name="cs_bottombar">#0D1526</color>
+    <color name="cs_bottombar_divider">#1A2740</color>
+
+    <!-- Coloured icon-tile system (icon colour + its tinted tile). -->
+    <color name="cs_red">#F4536E</color>
+    <color name="cs_amber">#F5B942</color>
+    <color name="cs_purple">#A78BFA</color>
+    <color name="cs_blue">#38BDF8</color>
+    <color name="cs_pink">#F472B6</color>
+    <color name="cs_tint_green">#123528</color>
+    <color name="cs_tint_red">#3A1F28</color>
+    <color name="cs_tint_amber">#38301C</color>
+    <color name="cs_tint_purple">#2A2140</color>
+    <color name="cs_tint_blue">#16303F</color>
+    <color name="cs_tint_pink">#38202E</color>
+
+    <!-- Dashboard hero gradient (green to blue, as approved). -->
+    <color name="cs_hero_start">#0D3B2E</color>
+    <color name="cs_hero_end">#123A5C</color>
+    <color name="cs_hero_border">#1E4638</color>
+</resources>

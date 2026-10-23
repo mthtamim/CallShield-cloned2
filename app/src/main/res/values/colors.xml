@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v1.2.0 design tokens — LIGHT theme. The dark counterparts live in
+     values-night/colors.xml. Same names in both files: layouts and code
+     only ever reference the token, never a raw value. -->
+<resources>
+    <color name="cs_bg">#F2F5FA</color>
+    <color name="cs_card">#FFFFFF</color>
+    <color name="cs_text">#101A2C</color>
+    <color name="cs_text_body">#33415C</color>
+    <color name="cs_text_secondary">#64748D</color>
+    <color name="cs_accent">#22C55E</color>
+    <color name="cs_accent_dark">#0E8A44</color>
+    <color name="cs_on_accent">#06251A</color>
+    <color name="cs_danger">#E11D48</color>
+    <color name="cs_warning">#D97706</color>
+    <color name="cs_divider">#DFE6F0</color>
+    <color name="cs_bottombar">#FFFFFF</color>
+    <color name="cs_bottombar_divider">#DFE6F0</color>
+
+    <!-- Coloured icon-tile system (icon colour + its tinted tile). -->
+    <color name="cs_red">#E11D48</color>
+    <color name="cs_amber">#D97706</color>
+    <color name="cs_purple">#7C3AED</color>
+    <color name="cs_blue">#0284C7</color>
+    <color name="cs_pink">#DB2777</color>
+    <color name="cs_tint_green">#DCF5E7</color>
+    <color name="cs_tint_red">#FDE3E9</color>
+    <color name="cs_tint_amber">#FBEDCB</color>
+    <color name="cs_tint_purple">#EAE4FD</color>
+    <color name="cs_tint_blue">#D9F0FD</color>
+    <color name="cs_tint_pink">#FCE0EE</color>
+
+    <!-- Dashboard hero gradient (pale in light theme). -->
+    <color name="cs_hero_start">#D8F3E3</color>
+    <color name="cs_hero_end">#DCE9F7</color>
+    <color name="cs_hero_border">#BFE3CF</color>
+
+    <color name="ic_launcher_background">#FFFFFF</color>
+</resources>

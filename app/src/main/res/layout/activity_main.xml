@@ -1,0 +1,1656 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v1.1.1: bottom-navigation home. One content area with five pages
+     (Dashboard / Filtering / Smart Allow / Log / Settings) switched by
+     the bar; every tab is a page of this activity, so the bar never
+     disappears. Replaces the v1.0.1 grouped menu. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cs_bg"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- ============ Dashboard page ============ -->
+        <ScrollView
+            android:id="@+id/pageDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/CS.Heading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hero_call"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        style="@style/CS.Heading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hero_shield"
+                        android:textColor="@color/cs_accent_dark"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/CS.Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/tagline" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_hero"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="54dp"
+                            android:layout_height="54dp"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/ic_shield_ring"
+                            android:tint="@color/cs_accent_dark" />
+
+                        <TextView
+                            android:id="@+id/textHeroState"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:textColor="@color/cs_accent_dark"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textHeroPill"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_pill_on"
+                            android:paddingStart="10dp"
+                            android:paddingTop="3dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="3dp"
+                            android:textColor="@color/cs_on_accent"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <Switch
+                        android:id="@+id/switchMaster"
+                        style="@style/CS.Body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/master_switch" />
+
+                    <TextView
+                        android:id="@+id/textStatus"
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp" />
+
+                    <TextView
+                        android:id="@+id/textRoleStatus"
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp" />
+
+                    <TextView
+                        android:id="@+id/textProfile"
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+
+                <!-- Stat tiles: three tinted-icon tiles. The Blocked
+                     today number lives here (textBlockedToday), so it
+                     never appears twice on this page. -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        style="@style/CS.StatTile"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:contentDescription="@string/dash_blocked_today_label"
+                            android:src="@drawable/ic_block"
+                            android:tint="@color/cs_red" />
+
+                        <TextView
+                            android:id="@+id/textBlockedToday"
+                            style="@style/CS.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:textColor="@color/cs_red"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/CS.Caption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/dash_blocked_today_label" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/CS.StatTile"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:contentDescription="@string/dash_blocked_week_label"
+                            android:src="@drawable/ic_warning"
+                            android:tint="@color/cs_amber" />
+
+                        <TextView
+                            android:id="@+id/textBlockedWeek"
+                            style="@style/CS.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:textColor="@color/cs_amber"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/CS.Caption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/dash_blocked_week_label" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/CS.StatTile"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:contentDescription="@string/dash_last_blocked_label"
+                            android:src="@drawable/ic_check_circle"
+                            android:tint="@color/cs_accent_dark" />
+
+                        <TextView
+                            android:id="@+id/textLastBlocked"
+                            style="@style/CS.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:textColor="@color/cs_accent_dark"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/CS.Caption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/dash_last_blocked_label" />
+
+                        <TextView
+                            android:id="@+id/textLastBlockedTime"
+                            style="@style/CS.Caption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Quick actions: same Store flags the Smart Allow page
+                     and the Profiles screen edit — no separate state. -->
+                <LinearLayout
+                    style="@style/CS.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CS.Heading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dash_quick_title" />
+
+                    <Button
+                        android:id="@+id/btnDashTemp"
+                        style="@style/CS.ButtonSecondary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" />
+
+                    <Switch
+                        android:id="@+id/switchDashAllowNext"
+                        style="@style/CS.Body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/allow_next_label" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/chipStrict"
+                            style="@style/CS.ButtonSecondary"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/profile_strict" />
+
+                        <Button
+                            android:id="@+id/chipNormal"
+                            style="@style/CS.ButtonSecondary"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="@string/profile_normal" />
+
+                        <Button
+                            android:id="@+id/chipOpen"
+                            style="@style/CS.ButtonSecondary"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="@string/dash_profile_open" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Recent blocks: rows are built in code from the log;
+                     the whole card opens the Log screen. -->
+                <LinearLayout
+                    android:id="@+id/cardRecent"
+                    style="@style/CS.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CS.Heading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dash_recent_title" />
+
+                    <TextView
+                        android:id="@+id/textRecentEmpty"
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/dash_recent_empty" />
+
+                    <LinearLayout
+                        android:id="@+id/layoutRecentRows"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </LinearLayout>
+
+                <!-- Protection check: live status, computed on show;
+                     the whole card opens the Permissions screen. -->
+                <LinearLayout
+                    android:id="@+id/cardProtection"
+                    style="@style/CS.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CS.Heading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dash_check_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:id="@+id/dotRole"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:background="@drawable/dot_status" />
+
+                        <TextView
+                            style="@style/CS.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:text="@string/dash_check_role" />
+
+                        <TextView
+                            android:id="@+id/textCheckRole"
+                            style="@style/CS.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:id="@+id/dotBattery"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:background="@drawable/dot_status" />
+
+                        <TextView
+                            style="@style/CS.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:text="@string/dash_check_battery" />
+
+                        <TextView
+                            android:id="@+id/textCheckBattery"
+                            style="@style/CS.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:id="@+id/dotPerms"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:background="@drawable/dot_status" />
+
+                        <TextView
+                            android:id="@+id/textCheckPerms"
+                            style="@style/CS.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/textCheckPermsState"
+                            style="@style/CS.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ============ Filtering page ============ -->
+        <ScrollView
+            android:id="@+id/pageFiltering"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/CS.Heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab_filtering"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textFilteringSummary"
+                    style="@style/CS.Caption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp" />
+
+                <LinearLayout
+                    style="@style/CS.CardMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:id="@+id/btnLists"
+                        style="@style/CS.MenuRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            style="@style/CS.MenuTile"
+                            android:background="@drawable/bg_tile_green"
+                            android:contentDescription="@string/nav_lists"
+                            android:src="@drawable/ic_list"
+                            android:tint="@color/cs_accent_dark" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/CS.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nav_lists"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/CS.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/menu_desc_lists" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textListsStatus"
+                            style="@style/CS.MenuStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="64dp"
+                        android:background="@color/cs_divider" />
+                    <LinearLayout
+                        android:id="@+id/btnProfiles"
+                        style="@style/CS.MenuRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            style="@style/CS.MenuTile"
+                            android:background="@drawable/bg_tile_purple"
+                            android:contentDescription="@string/nav_profiles"
+                            android:src="@drawable/ic_clock"
+                            android:tint="@color/cs_purple" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/CS.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nav_profiles"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/CS.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/menu_desc_profiles" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textProfilesStatus"
+                            style="@style/CS.MenuStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="64dp"
+                        android:background="@color/cs_divider" />
+                    <LinearLayout
+                        android:id="@+id/btnRules"
+                        style="@style/CS.MenuRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            style="@style/CS.MenuTile"
+                            android:background="@drawable/bg_tile_blue"
+                            android:contentDescription="@string/nav_rules"
+                            android:src="@drawable/ic_sliders"
+                            android:tint="@color/cs_blue" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/CS.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nav_rules"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/CS.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/menu_desc_rules" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textRulesStatus"
+                            style="@style/CS.MenuStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="64dp"
+                        android:background="@color/cs_divider" />
+                    <LinearLayout
+                        android:id="@+id/btnSms"
+                        style="@style/CS.MenuRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            style="@style/CS.MenuTile"
+                            android:background="@drawable/bg_tile_pink"
+                            android:contentDescription="@string/nav_sms"
+                            android:src="@drawable/ic_chat"
+                            android:tint="@color/cs_pink" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/CS.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nav_sms"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/CS.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/menu_desc_sms" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textSmsStatus"
+                            style="@style/CS.MenuStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ============ Smart Allow page (was SmartAllowActivity) ============ -->
+        <ScrollView
+            android:id="@+id/pageSmart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/CS.Heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/smart_title"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    style="@style/CS.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CS.Heading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/temp_allow_label" />
+
+                    <TextView
+                        android:id="@+id/textTempStatus2"
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnT15"
+                            style="@style/CS.ButtonSecondary"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/temp_15" />
+
+                        <Button
+                            android:id="@+id/btnT30"
+                            style="@style/CS.ButtonSecondary"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="@string/temp_30" />
+
+                        <Button
+                            android:id="@+id/btnT60"
+                            style="@style/CS.ButtonSecondary"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="@string/temp_60" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnTempCancel"
+                        style="@style/CS.ButtonSecondary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/temp_cancel" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/CS.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <Switch
+                        android:id="@+id/switchAllowNext"
+                        style="@style/CS.Body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/allow_next_label" />
+
+                    <TextView
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/allow_next_desc" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/CS.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CS.Heading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/expected_label" />
+
+                    <TextView
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/expected_desc" />
+
+                    <EditText
+                        android:id="@+id/editExpected"
+                        style="@style/CS.Body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="@string/expected_hint"
+                        android:inputType="phone" />
+
+                    <TextView
+                        android:id="@+id/textExpectedStatus"
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnExpectedSet"
+                            style="@style/CS.Button"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/expected_set" />
+
+                        <Button
+                            android:id="@+id/btnExpectedClear"
+                            style="@style/CS.ButtonSecondary"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="@string/expected_clear" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/CS.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CS.Heading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/callback_label" />
+
+                    <TextView
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/callback_desc" />
+
+                    <Spinner
+                        android:id="@+id/spinnerCallback"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/CS.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <Switch
+                        android:id="@+id/switchRepeat"
+                        style="@style/CS.Body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/repeat_label" />
+
+                    <TextView
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/repeat_desc" />
+
+                    <TextView
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/repeat_count_label" />
+
+                    <Spinner
+                        android:id="@+id/spinnerRepeatCount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/repeat_window_label" />
+
+                    <Spinner
+                        android:id="@+id/spinnerRepeatWindow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/CS.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CS.Heading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/auto_sms_label" />
+
+                    <TextView
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/auto_sms_desc" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/CS.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/auto_sms_enable" />
+
+                        <Switch
+                            android:id="@+id/switchAutoSms"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/editAutoSmsText"
+                        style="@style/CS.Body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="@string/auto_sms_hint"
+                        android:inputType="textMultiLine"
+                        android:maxLines="3" />
+
+                    <TextView
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/auto_sms_cost" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/CS.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CS.Heading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sms_known_label" />
+
+                    <TextView
+                        style="@style/CS.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/sms_known_desc" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/CS.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/sms_known_enable" />
+
+                        <Switch
+                            android:id="@+id/switchSmsKnown"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnSaveSmart"
+                    style="@style/CS.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/save" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ============ Log page (was LogActivity, v1.1.1) ============ -->
+        <LinearLayout
+            android:id="@+id/pageLog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/CS.Heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/log_title"
+                android:textSize="20sp" />
+
+            <TextView
+                style="@style/CS.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/log_hint" />
+
+            <EditText
+                android:id="@+id/editLogSearch"
+                style="@style/CS.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/log_search_hint" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinnerLogFilter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btnExportCsv"
+                    style="@style/CS.ButtonSecondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/log_export" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/listLog"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="6dp" />
+
+            <TextView
+                android:id="@+id/textEmptyLog"
+                style="@style/CS.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_log"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnClearLog"
+                style="@style/CS.ButtonSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/clear_log" />
+        </LinearLayout>
+
+        <!-- ============ Settings page ============ -->
+        <ScrollView
+            android:id="@+id/pageSettings"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/CS.Heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_settings"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    style="@style/CS.CardMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:id="@+id/btnStats"
+                        style="@style/CS.MenuRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            style="@style/CS.MenuTile"
+                            android:background="@drawable/bg_tile_blue"
+                            android:contentDescription="@string/nav_stats"
+                            android:src="@drawable/ic_chart"
+                            android:tint="@color/cs_blue" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/CS.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nav_stats"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/CS.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/menu_desc_stats" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textStatsStatus"
+                            style="@style/CS.MenuStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="64dp"
+                        android:background="@color/cs_divider" />
+                    <LinearLayout
+                        android:id="@+id/btnSuggestions"
+                        style="@style/CS.MenuRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            style="@style/CS.MenuTile"
+                            android:background="@drawable/bg_tile_amber"
+                            android:contentDescription="@string/nav_suggestions"
+                            android:src="@drawable/ic_bulb"
+                            android:tint="@color/cs_amber" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/CS.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nav_suggestions"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/CS.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/menu_desc_suggestions" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textSuggestionsStatus"
+                            style="@style/CS.MenuStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="64dp"
+                        android:background="@color/cs_divider" />
+                    <LinearLayout
+                        android:id="@+id/btnTest"
+                        style="@style/CS.MenuRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            style="@style/CS.MenuTile"
+                            android:background="@drawable/bg_tile_purple"
+                            android:contentDescription="@string/nav_test"
+                            android:src="@drawable/ic_flask"
+                            android:tint="@color/cs_purple" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/CS.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nav_test"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/CS.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/menu_desc_test" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textTestStatus"
+                            style="@style/CS.MenuStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="64dp"
+                        android:background="@color/cs_divider" />
+                    <LinearLayout
+                        android:id="@+id/btnSecurity"
+                        style="@style/CS.MenuRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            style="@style/CS.MenuTile"
+                            android:background="@drawable/bg_tile_red"
+                            android:contentDescription="@string/nav_security"
+                            android:src="@drawable/ic_lock"
+                            android:tint="@color/cs_red" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/CS.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nav_security"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/CS.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/menu_desc_security" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textSecurityStatus"
+                            style="@style/CS.MenuStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="64dp"
+                        android:background="@color/cs_divider" />
+                    <LinearLayout
+                        android:id="@+id/btnOnline"
+                        style="@style/CS.MenuRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            style="@style/CS.MenuTile"
+                            android:background="@drawable/bg_tile_blue"
+                            android:contentDescription="@string/nav_online"
+                            android:src="@drawable/ic_search"
+                            android:tint="@color/cs_blue" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/CS.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nav_online"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/CS.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/menu_desc_online" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textOnlineStatus"
+                            style="@style/CS.MenuStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="64dp"
+                        android:background="@color/cs_divider" />
+                    <LinearLayout
+                        android:id="@+id/btnSettings"
+                        style="@style/CS.MenuRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            style="@style/CS.MenuTile"
+                            android:background="@drawable/bg_tile_green"
+                            android:contentDescription="@string/nav_settings"
+                            android:src="@drawable/ic_gear"
+                            android:tint="@color/cs_accent_dark" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/CS.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nav_settings"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/CS.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/menu_desc_settings" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textSettingsStatus"
+                            style="@style/CS.MenuStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="64dp"
+                        android:background="@color/cs_divider" />
+                    <LinearLayout
+                        android:id="@+id/btnPermissions"
+                        style="@style/CS.MenuRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            style="@style/CS.MenuTile"
+                            android:background="@drawable/bg_tile_amber"
+                            android:contentDescription="@string/nav_permissions"
+                            android:src="@drawable/ic_shield_check"
+                            android:tint="@color/cs_amber" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/CS.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nav_permissions"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/CS.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/menu_desc_permissions" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textPermissionsStatus"
+                            style="@style/CS.MenuStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="64dp"
+                        android:background="@color/cs_divider" />
+                    <LinearLayout
+                        android:id="@+id/btnWizard"
+                        style="@style/CS.MenuRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            style="@style/CS.MenuTile"
+                            android:background="@drawable/bg_tile_purple"
+                            android:contentDescription="@string/nav_wizard"
+                            android:src="@drawable/ic_wand"
+                            android:tint="@color/cs_purple" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/CS.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nav_wizard"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                style="@style/CS.Caption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/menu_desc_wizard" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textWizardStatus"
+                            style="@style/CS.MenuStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+    <!-- ============ Bottom navigation bar ============ -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/cs_bottombar_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/cs_bottombar"
+        android:orientation="horizontal"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp">
+
+        <LinearLayout
+            android:id="@+id/tabDashboard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iconDashboard"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/tab_dashboard"
+                android:src="@drawable/ic_home" />
+
+            <TextView
+                android:id="@+id/labelDashboard"
+                style="@style/CS.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_dashboard"  />
+
+            <View
+                android:id="@+id/dotTabDashboard"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/dot_status"
+                android:backgroundTint="@color/cs_accent"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabFiltering"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iconFiltering"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/tab_filtering"
+                android:src="@drawable/ic_filter" />
+
+            <TextView
+                android:id="@+id/labelFiltering"
+                style="@style/CS.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_filtering"  />
+
+            <View
+                android:id="@+id/dotTabFiltering"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/dot_status"
+                android:backgroundTint="@color/cs_accent"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabSmart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iconSmart"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/smart_title"
+                android:src="@drawable/ic_clock" />
+
+            <TextView
+                android:id="@+id/labelSmart"
+                style="@style/CS.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/smart_title"  />
+
+            <View
+                android:id="@+id/dotTabSmart"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/dot_status"
+                android:backgroundTint="@color/cs_accent"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabLog"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iconLog"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/tab_log"
+                android:src="@drawable/ic_list" />
+
+            <TextView
+                android:id="@+id/labelLog"
+                style="@style/CS.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_log"  />
+
+            <View
+                android:id="@+id/dotTabLog"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/dot_status"
+                android:backgroundTint="@color/cs_accent"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabSettings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iconSettings"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/nav_settings"
+                android:src="@drawable/ic_gear" />
+
+            <TextView
+                android:id="@+id/labelSettings"
+                style="@style/CS.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/nav_settings"  />
+
+            <View
+                android:id="@+id/dotTabSettings"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/dot_status"
+                android:backgroundTint="@color/cs_accent"
+                android:visibility="invisible" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

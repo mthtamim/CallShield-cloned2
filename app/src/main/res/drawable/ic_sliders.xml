@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sliders (tune): three bars with round knobs, drawn from plain
+     rectangles and two-arc circles. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M2,5h11v2H2V5zM19.5,5H22v2h-2.5V5zM13.5,6a2.5,2.5 0 1,1 5,0a2.5,2.5 0 1,1 -5,0zM2,11h2.5v2H2v-2zM11,11h11v2H11v-2zM5.5,12a2.5,2.5 0 1,1 5,0a2.5,2.5 0 1,1 -5,0zM2,17h13v2H2v-2zM20.5,17H22v2h-1.5v-2zM15.5,18a2.5,2.5 0 1,1 5,0a2.5,2.5 0 1,1 -5,0z" />
+</vector>

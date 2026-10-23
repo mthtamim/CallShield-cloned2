@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v1.2.0 unselected pill chip (dashboard profile chips): card surface
+     with a border. The selected state is bg_button (filled accent). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="20dp" />
+    <solid android:color="@color/cs_card" />
+    <stroke
+        android:width="1dp"
+        android:color="@color/cs_divider" />
+</shape>

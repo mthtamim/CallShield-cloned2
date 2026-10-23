@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.CallShield" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/cs_bg</item>
+        <item name="android:statusBarColor">@color/cs_bg</item>
+        <item name="colorAccent">@color/cs_accent</item>
+    </style>
+
+    <style name="CS.Card" parent="">
+        <item name="android:background">@drawable/bg_card</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="CS.Heading" parent="">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/cs_text</item>
+    </style>
+
+    <style name="CS.Body" parent="">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/cs_text_body</item>
+    </style>
+
+    <!-- v1.2.0: dashboard stat tile (icon on top, big coloured number).
+         The layout sets the tile's own padding-free column inside. -->
+    <style name="CS.StatTile" parent="">
+        <item name="android:background">@drawable/bg_card</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="CS.Caption" parent="">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/cs_text_secondary</item>
+    </style>
+
+    <style name="CS.Button" parent="">
+        <item name="android:background">@drawable/bg_button</item>
+        <item name="android:textColor">@color/cs_on_accent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="CS.CardMenu" parent="">
+        <item name="android:background">@drawable/bg_card</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <!-- v1.1.1: shared tab-menu row (Filtering + Settings pages). One row
+         component for both pages: dot, title + description, live status. -->
+    <style name="CS.MenuRow" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <!-- v1.2.0: the menu rows' leading element is now a coloured icon
+         tile (40dp tinted square, glyph centred). The row sets its own
+         tile background + glyph + tint; this style only fixes geometry. -->
+    <style name="CS.MenuTile" parent="">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:padding">9dp</item>
+    </style>
+
+    <style name="CS.MenuStatus" parent="">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/cs_accent_dark</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:gravity">end</item>
+    </style>
+
+    <style name="CS.ButtonSecondary" parent="">
+        <item name="android:background">@drawable/bg_button_secondary</item>
+        <item name="android:textColor">@color/cs_accent_dark</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:padding">12dp</item>
+    </style>
+</resources>
