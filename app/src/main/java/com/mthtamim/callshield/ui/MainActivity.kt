@@ -253,12 +253,11 @@ class MainActivity : BaseActivity() {
         }
 
         bindTabs()
-        // Cold start always lands on Dashboard (v1.1.1) — the only
-        // exceptions are a configuration change inside this process
-        // (sessionPage survives it) and an explicit deep link.
+        // Explicitly start on Dashboard, ignoring sessionPage to fix
+        // unexpected tab switches, unless deep-linked to log.
         val startPage = when {
             intent.hasExtra(EXTRA_OPEN_LOG) -> PAGE_LOG
-            else -> sessionPage
+            else -> PAGE_DASHBOARD
         }
         showPage(startPage)
 
