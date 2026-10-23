@@ -3,19 +3,19 @@
      values-night/colors.xml. Same names in both files: layouts and code
      only ever reference the token, never a raw value. -->
 <resources>
-    <color name="cs_bg">#F2F5FA</color>
+    <color name="cs_bg">#FAFAFA</color>
     <color name="cs_card">#FFFFFF</color>
-    <color name="cs_text">#101A2C</color>
-    <color name="cs_text_body">#33415C</color>
-    <color name="cs_text_secondary">#64748D</color>
-    <color name="cs_accent">#22C55E</color>
-    <color name="cs_accent_dark">#0E8A44</color>
-    <color name="cs_on_accent">#06251A</color>
-    <color name="cs_danger">#E11D48</color>
-    <color name="cs_warning">#D97706</color>
-    <color name="cs_divider">#DFE6F0</color>
+    <color name="cs_text">#1C1B1F</color>
+    <color name="cs_text_body">#49454F</color>
+    <color name="cs_text_secondary">#79747E</color>
+    <color name="cs_accent">#6200EE</color>
+    <color name="cs_accent_dark">#3700B3</color>
+    <color name="cs_on_accent">#FFFFFF</color>
+    <color name="cs_danger">#B3261E</color>
+    <color name="cs_warning">#F9A825</color>
+    <color name="cs_divider">#E7E0EC</color>
     <color name="cs_bottombar">#FFFFFF</color>
-    <color name="cs_bottombar_divider">#DFE6F0</color>
+    <color name="cs_bottombar_divider">#E7E0EC</color>
 
     <!-- Coloured icon-tile system (icon colour + its tinted tile). -->
     <color name="cs_red">#E11D48</color>
@@ -23,17 +23,17 @@
     <color name="cs_purple">#7C3AED</color>
     <color name="cs_blue">#0284C7</color>
     <color name="cs_pink">#DB2777</color>
-    <color name="cs_tint_green">#DCF5E7</color>
-    <color name="cs_tint_red">#FDE3E9</color>
-    <color name="cs_tint_amber">#FBEDCB</color>
-    <color name="cs_tint_purple">#EAE4FD</color>
-    <color name="cs_tint_blue">#D9F0FD</color>
-    <color name="cs_tint_pink">#FCE0EE</color>
+    <color name="cs_tint_green">#E6F4EA</color>
+    <color name="cs_tint_red">#FCE8E6</color>
+    <color name="cs_tint_amber">#FEF7E0</color>
+    <color name="cs_tint_purple">#F3E5F5</color>
+    <color name="cs_tint_blue">#E3F2FD</color>
+    <color name="cs_tint_pink">#FCE4EC</color>
 
     <!-- Dashboard hero gradient (pale in light theme). -->
-    <color name="cs_hero_start">#D8F3E3</color>
-    <color name="cs_hero_end">#DCE9F7</color>
-    <color name="cs_hero_border">#BFE3CF</color>
+    <color name="cs_hero_start">#EDE7F6</color>
+    <color name="cs_hero_end">#E8EAF6</color>
+    <color name="cs_hero_border">#D1C4E9</color>
 
     <color name="ic_launcher_background">#FFFFFF</color>
 </resources>

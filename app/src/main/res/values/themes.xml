@@ -9,6 +9,7 @@
     <style name="CS.Card" parent="">
         <item name="android:background">@drawable/bg_card</item>
         <item name="android:padding">16dp</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
     <style name="CS.Heading" parent="">
@@ -45,6 +46,7 @@
     <style name="CS.CardMenu" parent="">
         <item name="android:background">@drawable/bg_card</item>
         <item name="android:padding">0dp</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
     <!-- v1.1.1: shared tab-menu row (Filtering + Settings pages). One row
